@@ -1,2 +1,5 @@
 # Executables
 *.sh
+
+# files
+*.json
