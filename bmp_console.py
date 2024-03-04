@@ -17,7 +17,7 @@ from models import storage
 class BMPCommand(cmd.Cmd):
     '''Console that performs CRUD operations.'''
     prompt = '(bmp) '
-    methods = ['create', 'show']
+    methods = ['create', 'show', 'destroy', 'all', 'update']
     __classes = {
         'BaseModel': BaseModel,
         'Album': Album,
@@ -48,6 +48,8 @@ class BMPCommand(cmd.Cmd):
             while temp[-1] == '':
                 temp.pop()
             if len(temp) < 2:
+                return line
+            if len(temp) == 2:
                 temp = f'{temp[1]} {temp[0]}'
             else:
                 temp = f'{temp[1]} {temp[0]} {temp[2]}'
@@ -65,7 +67,7 @@ class BMPCommand(cmd.Cmd):
         if len(args) == 0:
             print('** class name missing **')
         elif args[0] not in self.__classes:
-            print("** class doesn't exists **")
+            print("** class doesn't exist **")
         else:
             new_instance = eval(f'{args[0]}()')
             new_instance.save()
@@ -86,11 +88,14 @@ class BMPCommand(cmd.Cmd):
         class name and id
         '''
         args = parse(arg)
-        if len(args) < 2:
-            print('** instance id missing **')
+        if len(args) == 0:
+            print('** class name missing **')
             return
         if args[0] not in self.__classes:
             print("** class doesn't exist **")
+            return
+        if len(args) == 1:
+            print('** instance id missing **')
             return
         key = f'{args[0]}.{args[1]}'
         if key not in storage.all():
@@ -107,6 +112,107 @@ class BMPCommand(cmd.Cmd):
             '\nShows the string representation of an instance '
             'based on the class name and instance id.'
         )
+
+    def do_destroy(self, arg):
+        '''Deletes an instance based on the class name and id, from
+        memory.
+        '''
+        args = parse(arg)
+        if len(args) == 0:
+            print('** class name missing **')
+            return
+        if len(args) == 1:
+            print('** instance id missing **')
+            return
+        if args[0] not in self.__classes:
+            print("** class doesn't exist **")
+            return
+        key = f'{args[0]}.{args[1]}'
+        if key not in storage.all():
+            print('** no instance found **')
+            return
+        del storage.all()[key]
+        storage.save()
+
+    @staticmethod
+    def help_destroy():
+        '''Static method that displays the help info of the destroy
+        method
+        '''
+        print(
+            'Usage: destroy <class_name> <instance_id>'
+            '\nDeletes an instance based on the class name '
+            'and instance id.'
+        )
+
+    def do_all(self, arg):
+        '''Prints all string representations of all instances to stdout.'''
+        args = parse(arg)
+        if len(args) == 0:
+            print([str(obj)] for obj in storage.all().values())
+        elif args[0] not in self.__classes:
+            print("** class doesn't exist **")
+            return
+        else:
+            class_name = args[0]
+            if class_name not in self.__classes:
+                print("** class doesn't exist **")
+                return
+            instances = storage.all().values()
+            class_instance = [
+                str(instance) for instance in instances
+                if isinstance(instance, self.__classes[class_name])
+            ]
+            print(class_instance)
+
+    @staticmethod
+    def help_all():
+        '''Static method that displays the help info of the all method.'''
+        print(
+            'Usage: all -optional [<class_name>]'
+            '\nPrints all string representations of instances '
+            'based in the optional class_name, if passed to command'
+            '\nor all instances in memory.'
+        )
+
+    def do_update(self, arg):
+        '''Updates an instance based on the class name and id.'''
+        args = parse(arg)
+        if len(args) == 0:
+            print('** class name missing **')
+            return
+        if args[0] not in self.__classes:
+            print("** class doesn't exist **")
+            return
+        if len(args) == 1:
+            print('** instance id missing **')
+            return
+        else:
+            key = f'{args[0]}.{args[1]}'.strip(',')
+            try:
+                instance = storage.all()[key]
+            except KeyError:
+                if key not in storage.all():
+                    print('** no instance found **')
+                    return
+            if len(args) == 2:
+                print('** attribute name missing **')
+                return
+            elif len(args) == 3:
+                print('** value missing **')
+                return
+            else:
+                try:
+                    attributeType = type(getattr(instance, args[2]))
+                    args[3] = attributeType(args[3])
+                except AttributeError:
+                    pass
+                try:
+                    eval(args[3])
+                except (SyntaxError, NameError):
+                    args[3] = f"'{args[3]}'"
+                setattr(instance, args[2].strip('," '), eval(args[3]))
+                instance.save()
 
     def do_quit(self, arg):
         '''Quit command that exists the program'''
