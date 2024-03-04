@@ -1,4 +1,4 @@
-# bmpstudio
+# BMP Studio
 Welcome to this repository! This repository at the point of the first draft of the `README.md` file contains code for a custom website implementation for BMP Studio.
 
 ##  [Album](https://github.com/gitloper-azara/bmpstudio/blob/ef8ac9b1c33c168bbfc22b8360029151d6285fea/models/album.py)
