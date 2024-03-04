@@ -14,7 +14,7 @@ Represents reviews left by clients who have engaged with the website or have bee
 Represents users of the website.
 
 # Console (cmd CRUD)
-The [console](https://github.com/gitloper-azara/bmpstudio/blob/ef8ac9b1c33c168bbfc22b8360029151d6285fea/bmp_console.py) allows for CRUD (Create, Update, Destroy, etc) operations on objects. It allows for data model creation. It stores and persists objects to a file (JSON file). The console is a tool that validates the storage engine that I have built. From the console code and from the front-end and RestAPI I will build later, I do not have to worry about how objects are stored. This console abstraction will also allow me to change the type of storage easily without updating my entire codebase.
+The [console](https://github.com/gitloper-azara/bmpstudio/blob/1ffab6e196ad5ed3a06fed597d3a1e9e5869bc39/bmp_console.py) allows for CRUD (Create, Update, Destroy, etc) operations on objects. It allows for data model creation. It stores and persists objects to a file (JSON file). The console is a tool that validates the storage engine that I have built. From the console code and from the front-end and RestAPI I will build later, I do not have to worry about how objects are stored. This console abstraction will also allow me to change the type of storage easily without updating my entire codebase.
 
 ## Requirements
 Python 3.8.5 or later
