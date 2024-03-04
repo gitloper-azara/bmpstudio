@@ -214,6 +214,15 @@ class BMPCommand(cmd.Cmd):
                 setattr(instance, args[2].strip('," '), eval(args[3]))
                 instance.save()
 
+    @staticmethod
+    def help_update():
+        '''Static method that displays help info of the update method.'''
+        print(
+            'Usage: update <class_name> <instance_id> <attribute_name>'
+            '\nUpdates an instance based in the class name, instance id, '
+            'attribute name, and attribute value.'
+        )
+
     def do_quit(self, arg):
         '''Quit command that exists the program'''
         return True
