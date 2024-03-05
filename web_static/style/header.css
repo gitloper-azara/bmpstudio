@@ -1,0 +1,10 @@
+header {
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    background-image: url("../images/bmplogo_black.png");
+    background-position: 20px center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
