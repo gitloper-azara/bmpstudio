@@ -1,10 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     background-color: #fff;
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #ccc;
-    background-image: url("../images/bmplogo_black.png");
+    background-image: url("../images/bmplogo_black_stacked.png");
     background-position: 20px center;
     background-size: 100px;
     background-repeat: no-repeat;
+    text-align: center;
+}
+
+.nav_items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_items a {
+    margin: 20px 30px 20px 0px;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+.active {
+    color: #ffc800 !important;
+}
+
+a {
+    color: #000;
+}
+
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color: #ffc800;
+}
+
+a:active {
+    color: #ffc800;
 }
