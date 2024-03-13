@@ -6,9 +6,9 @@ header {
     background-color: #fff;
     height: 70px;
     width: 100%;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ffc800;
     background-image: url("../images/bmplogo_black_stacked.png");
-    background-position: 20px center;
+    background-position: 20px 20px center;
     background-size: 100px;
     background-repeat: no-repeat;
     text-align: center;
@@ -18,13 +18,13 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .nav_items a {
     margin: 20px 30px 20px 0px;
     text-decoration: none;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .active {

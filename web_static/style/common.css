@@ -1,7 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0px;
-    padding: 20px 50px 10px 50px;
+    padding: 20px 250px 10px 250px;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -11,8 +11,15 @@ h1 {
     text-align: center;
 }
 
-#portfolio_nav {
-    margin: 0px 0px 20px 0px;
+.nav_items_p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_items_p a {
+    margin: 20px 30px 20px 0px;
     text-decoration: none;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
