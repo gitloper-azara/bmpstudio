@@ -14,6 +14,24 @@ header {
     text-align: center;
 }
 
+.header_container {
+    position: relative;
+}
+
+.background_link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    padding: -10px;
+    margin: 0 5px;
+    z-index: 1; /* this ensures the link is above other content */
+    /* make the link invisible */
+    background-color: transparent;
+    border: none;
+}
+
 .nav_items {
     display: flex;
     flex-direction: row;
@@ -24,7 +42,7 @@ header {
 .nav_items a {
     margin: 20px 30px 20px 0px;
     text-decoration: none;
-    transition: 0.1s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .active {
@@ -41,8 +59,25 @@ a:visited {
 
 a:hover {
     color: #ffc800;
+    transform: scale(1.18);
 }
 
 a:active {
     color: #ffc800;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 50px;
+        background-position: 5px 30px 5px 0px;
+    }
+
+    .nav_items {
+        justify-content: center;
+    }
+
+    .nav_items a {
+        flex: 1;
+        margin: 10px 5px;
+    }
 }

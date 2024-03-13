@@ -1,13 +1,13 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0px;
-    padding: 20px 250px 10px 250px;
+    padding: 20px 150px 10px 150px;
     display: flex;
     flex-direction: column;
     width: auto;
 }
 
-h1 {
+h1, h3 {
     text-align: center;
 }
 
@@ -21,5 +21,11 @@ h1 {
 .nav_items_p a {
     margin: 20px 30px 20px 0px;
     text-decoration: none;
-    transition: 0.1s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px 10px 10px;
+    }
 }
