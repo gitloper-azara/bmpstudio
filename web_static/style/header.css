@@ -42,7 +42,8 @@ header {
 .nav_items a {
     margin: 20px 30px 20px 0px;
     text-decoration: none;
-    transition: 0.2s ease-in-out;
+    transition: color 0.2s, transform 0.2s;
+    color: #000;
 }
 
 .active {
@@ -66,18 +67,62 @@ a:active {
     color: #ffc800;
 }
 
-@media (max-width: 768px) {
-    header {
-        height: 50px;
-        background-position: 5px 30px 5px 0px;
-    }
+/* new section for menu button */
+.menu-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+}
 
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffc800;
+    margin-bottom: 5px;
+    transition: transform 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        margin-top: 24px; /* show menu button on smaller screens */
+    }
     .nav_items {
-        justify-content: center;
+        display: none; /* hide nav menu by default on smaller screens */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 0;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: center;
     }
 
     .nav_items a {
         flex: 1;
         margin: 10px 5px;
+    }
+
+    .nav_items.active {
+        display: flex; /* show nav menu when active */
+    }
+
+    .menu-btn.open span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 5px);
+    }
+
+    .menu-btn.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.open span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -5px);
     }
 }

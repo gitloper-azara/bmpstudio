@@ -11,10 +11,3 @@ footer {
     line-height: 60px;
     color: #000;
 }
-
-@media (max-width: 768px) {
-    footer {
-        height: 30px;
-        width: 50%;
-    }
-}

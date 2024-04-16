@@ -19,7 +19,7 @@ h1, h3 {
 }
 
 .nav_items_p a {
-    margin: 20px 30px 20px 0px;
+    margin: 10px 20px;
     text-decoration: none;
     transition: 0.2s ease-in-out;
 }
@@ -27,5 +27,12 @@ h1, h3 {
 @media (max-width: 768px) {
     body {
         padding: 20px 10px 10px 10px;
+    }
+
+    .nav_items_p {
+        display: flex;
+        overflow-x: auto; /* enable horizontal scrolling */
+        overflow-y: hidden; /* disable vertical scrollbar */
+        white-space: nowrap; /* prevent items from wrapping */
     }
 }
