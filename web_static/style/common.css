@@ -26,7 +26,7 @@ h1, h3 {
 
 @media (max-width: 768px) {
     body {
-        padding: 20px 10px 10px 10px;
+        padding: 20px 50px 10px 50px;
     }
 
     .nav_items_p {

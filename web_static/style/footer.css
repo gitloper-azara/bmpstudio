@@ -10,4 +10,5 @@ footer {
     text-align: center;
     line-height: 60px;
     color: #000;
+    text-wrap: nowrap;
 }
