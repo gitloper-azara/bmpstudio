@@ -40,6 +40,7 @@ footer p {
     color: #000;
     display: flex;
     align-items: center;
+    transition: color 0.2s, transform 0.2s;
 }
 
 .socials a img {
