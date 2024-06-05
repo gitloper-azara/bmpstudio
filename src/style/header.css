@@ -1,35 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 header {
+    position: relative;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     background-color: #fff;
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #ffc800;
-    background-image: url("../images/bmplogo_black_stacked.png");
-    background-position: 20px 20px center;
-    background-size: 100px;
-    background-repeat: no-repeat;
     text-align: center;
 }
 
 .header_container {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
 }
 
-.background_link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100%;
-    padding: -10px;
-    margin: 0 5px;
-    z-index: 1; /* this ensures the link is above other content */
-    /* make the link invisible */
-    background-color: transparent;
-    border: none;
+header a {
+    display: inline-block;
+}
+
+header a img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
 }
 
 .nav_items {
@@ -40,7 +36,7 @@ header {
 }
 
 .nav_items a {
-    margin: 20px 30px 20px 0px;
+    margin: 20px 20px;
     text-decoration: none;
     transition: color 0.2s, transform 0.2s;
     color: #000;
@@ -87,11 +83,17 @@ a:active {
     transition: transform 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
+    .header_container {
+        padding: 10px 20px;
+    }
+
     .menu-btn {
         display: block;
-        margin-top: 24px; /* show menu button on smaller screens */
+        padding-right: 20px;
+        /* margin-top: 24px; /* show menu button on smaller screens */
     }
+
     .nav_items {
         display: none; /* hide nav menu by default on smaller screens */
         position: absolute;

@@ -1,7 +1,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0px;
-    padding: 20px 150px 10px 150px;
+    padding-top: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -26,7 +28,9 @@ h1, h3 {
 
 @media (max-width: 768px) {
     body {
-        padding: 20px 50px 10px 50px;
+        padding-top: 20px;
+        padding-right: 0;
+        padding-left: 0;
     }
 
     .nav_items_p {
@@ -34,5 +38,9 @@ h1, h3 {
         overflow-x: auto; /* enable horizontal scrolling */
         overflow-y: hidden; /* disable vertical scrollbar */
         white-space: nowrap; /* prevent items from wrapping */
+    }
+
+    .nav_items_p a {
+        margin: 10px 5px;
     }
 }
