@@ -1,5 +1,6 @@
 # Executables
 *.sh
+!init_bmpdb.sh
 
 # files
 *.json
