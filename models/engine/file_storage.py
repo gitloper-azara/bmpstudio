@@ -4,14 +4,12 @@ Deserialising JSON file to instances
 '''
 import json
 from models.base_model import BaseModel
-from models.album import Album
-from models.photo import Photo
-from models.review import Review
-from models.tags import Tag
-from models.user import User
+from models.categories import Category
+from models.images import Image
+from models.photographers import Photographer
 
 
-class FileStorage():
+class FileStorage:
     '''A storage engine that serialises instances to a JSON file
     and deserialises a JSON file to instances
     '''
@@ -19,11 +17,9 @@ class FileStorage():
     __objects = {}
     __classes = {
         'BaseModel': BaseModel,
-        'Album': Album,
-        'Photo': Photo,
-        'Review': Review,
-        'Tag': Tag,
-        'User': User
+        'Category': Category,
+        'Image': Image,
+        'Photographer': Photographer,
     }
 
     def all(self):

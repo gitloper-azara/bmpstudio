@@ -3,7 +3,14 @@
 to handle data recovery on session restart
 '''
 from models.engine.file_storage import FileStorage
+from models.engine.db_storage import DBStorage
+import os
 
+storage_t = os.getenv('BMP_TYPE_STORAGE')
 
-storage = FileStorage()
-storage.reload()
+if storage_t == 'db':
+    storage = DBStorage()
+    storage.reload()
+else:
+    storage = FileStorage()
+    storage.reload()
